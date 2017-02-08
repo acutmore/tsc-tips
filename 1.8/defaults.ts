@@ -1,54 +1,68 @@
-(() => {
 /**
- *  Avoid adding default arguments anywhere there is already a default argument
+ *  Avoid adding default arguments to a position where there is already a default argument of the same type
  */
 
-// Bad
+/**
+ * BAD
+ */
+
 function foo(
-    a: string,
-    //deleteEverything: boolean = false
+    // Adding a new default bool argument here is dangerous e.g:
+    // deleteEverything: boolean = false,
     log: boolean = false
 ) {
 }
 
-foo('test', true); // no compiler error but is now deleting everything
+foo(true); // no compiler error but is now deleting everything
 
-// Good
+/**
+ * GOOD
+ */
+
 function goodFoo(
-    a: string,
-    log: boolean = false,
-    deleteEverything: boolean = false
+    log: boolean = false
+    // Add new defaults to the end is safer e.g:
+    // , deleteEverything: boolean = false 
 ) { 
 }
 
-// Better
-function betterFoo(a: string, {
-    log = false,
-    deleteEverything = false   
-} = {}) {
-    
-}
-
-betterFoo('hi', { log: true });
-
-// More Better
-
-enum Log {
-    ALL,
-    None
-}
-
-enum Delete {
-    All,
-    None
-}
-
-function moreBetterFoo(
-    a: string,
-    log: Log = Log.None
+// Better - Use object to emulate named arguments
+function betterFoo(
+    {
+        log = false
+        // Adding a new parameter will not compete with existing parameters
+        // , deleteEverything = false
+    } = {}
 ) {
 }
 
-moreBetterFoo('yo', Log.ALL);
+// And is clearer at the call site
+betterFoo({ log: true });
 
-});
+// More Better - Use new types instead of booleans.
+
+const enum Log {
+    ALL,
+    NONE
+}
+
+enum Delete {
+    ALL,
+    NONE
+}
+
+function moreBetterFoo(
+    log: Log = Log.NONE,
+    del: Delete = Delete.NONE
+) {
+}
+
+moreBetterFoo(Log.ALL, Delete.ALL);
+
+// ...easier to curry than using an object for all parameters
+const curryableFoo = (log: Log) => (del: Delete) => () => {};
+const noLogFoo = curryableFoo(Log.NONE);
+const noLogDeleteAllFoo = noLogFoo(Delete.ALL);
+noLogDeleteAllFoo();
+
+export default () => {};

@@ -1,9 +1,9 @@
 {
-   "compilerOptions": {
-       "module": "es6"
-   },
-   "files": [
-       "asserts.ts",
-       "defaults.ts"
-   ]
+    "compilerOptions": {
+        "noEmit": true,
+        "target": "es5"
+    },
+    "include": [
+        "*.ts"
+    ]
 }
