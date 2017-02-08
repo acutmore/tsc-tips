@@ -53,3 +53,5 @@ class SafeC extends SafeSub {
 }
 
 const c2 = new SafeC();
+
+export default () => {};
