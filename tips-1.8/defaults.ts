@@ -22,7 +22,7 @@ foo(true); // no compiler error but is now deleting everything
 function goodFoo(
     log: boolean = false
     // Add new defaults to the end is safer e.g:
-    // , deleteEverything: boolean = false 
+    , deleteEverything: boolean = false 
 ) { 
 }
 
@@ -31,7 +31,7 @@ function betterFoo(
     {
         log = false
         // Adding a new parameter will not compete with existing parameters
-        // , deleteEverything = false
+        , deleteEverything = false
     } = {}
 ) {
 }

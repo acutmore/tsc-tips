@@ -1,0 +1,16 @@
+{
+  "name": "tsc_tips",
+  "version": "1.0.0",
+  "description": "Typescript tips",
+  "dependencies": {
+    "typescript-1.8": "./typescript-versions/1.8",
+    "typescript-2.1": "./typescript-versions/2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "watch-1.8": "node ./node_modules/typescript-1.8/node_modules/typescript/lib/tsc.js --project ./tips-1.8/tsconfig.json",
+    "watch-2.1": "node ./node_modules/typescript-2.1/node_modules/typescript/lib/tsc.js --project ./tips-2.1/tsconfig.json"
+  },
+  "author": "Ashley Cutmore",
+  "license": "ISC"
+}

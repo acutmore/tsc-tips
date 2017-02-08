@@ -5,19 +5,18 @@ Tips when using typescript
 
 ### Setup
 
-    cd 1.8
-    npm install
-    cd 2.1
     npm install
     
 ### Use
 
-Uncomment code where instructed and compile to see the errors that are caught
+1. Start watching the files
 
-    cd 1.8
-    npm run compile 2> /dev/null
-    
- or
- 
-    cd 2.1
-    npm run compile 2> /dev/null
+    npm run watch-1.8
+
+or
+
+    npm run watch-2.1
+
+2. Then when the files are modified the compiler will run and print any errors it finds
+
+3. Now uncomment code where instructed and see the errors that are caught by the compiler

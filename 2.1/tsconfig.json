@@ -1,9 +1,0 @@
-{
-    "compilerOptions": {
-        "noEmit": true,
-        "target": "es5"
-    },
-    "include": [
-        "*.ts"
-    ]
-}

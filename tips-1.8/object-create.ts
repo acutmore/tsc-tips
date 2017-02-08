@@ -2,7 +2,6 @@
  * The default Object.create is unsafe
  */
 
-
 const a = Object.create({a: 1}); // A has type any
 
 /**
