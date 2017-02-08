@@ -39,14 +39,14 @@ function betterFoo(
 // And is clearer at the call site
 betterFoo({ log: true });
 
-// More Better - Use new types instead of booleans.
+// Even better - Use new types instead of booleans.
 
 const enum Log {
     ALL,
     NONE
 }
 
-enum Delete {
+const enum Delete {
     ALL,
     NONE
 }

@@ -20,6 +20,7 @@ const a: Data[] = [].filter(_ => _.a != null).map(_ => _ as Data);
 
 // Create a type guard
 type Guard<T> = (o: any) => o is T;
+
 function isData(o: any): o is Data {
     return o && o.a != null;
 }
