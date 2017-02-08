@@ -1,0 +1,16 @@
+{
+  "name": "1.8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^1.8.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "node ./node_modules/typescript/lib/tsc.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
