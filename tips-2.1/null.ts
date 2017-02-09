@@ -17,8 +17,8 @@ function foo(s: string): string {
 //foo(undefined);
 
 /**
- * If a variable may contain null/undefined it must be made explict
- * Though it is probably better to avoid null alltogether
+ * If a variable may contain null/undefined it must be made explicit
+ * Though it is probably better to avoid null all together
  */
 
 let y: string | null = null;

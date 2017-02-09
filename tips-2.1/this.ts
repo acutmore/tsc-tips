@@ -23,7 +23,7 @@ f(); // Run-time TypeError: Cannot read property 'concat' of undefined
 
 const c2 = new class {
     private s = "test";
-    // Explicity specify the implicit this argument
+    // Explicitly specify the implicit this argument
     foo(this: this) {
         return this.s.concat("foo");
     }
