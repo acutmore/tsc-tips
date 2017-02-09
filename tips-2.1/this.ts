@@ -7,14 +7,14 @@
  */
 
 const c = new class {
-    private i = 1;
+    private s = "test";
     foo() {
-        return this.i;
+        return this.s.concat("foo");
     }
 }
 
 const f = c.foo;
-f(); // no error
+f(); // Run-time TypeError: Cannot read property 'concat' of undefined 
 
 
 /**
@@ -22,14 +22,14 @@ f(); // no error
  */
 
 const c2 = new class {
-    private c = 1;
+    private s = "test";
     // Explicity specify the implicit this argument
     foo(this: this) {
-        return this.c;
+        return this.s.concat("foo");
     }
 }
 
 const f2 = c2.foo;
-// f2(); // compiler will catch this error
+// f2(); // compiler will now catch this error
 
 export default () => {};

@@ -12,13 +12,13 @@ interface I {
     foo: number;
 }
 
+// We can make a read only version of 'I' by marking properties as readonly
 interface ReadOnlyI {
     readonly foo: number;
 }
 
-type ReadOnlyI2 = Readonly<I>;
-
-const i: ReadOnlyI2 = { foo: 1 };
+// Or just use the Polymorphic Readonly Type
+const i: Readonly<I> = { foo: 1 };
 
 // Trying to assign will error
 // i.foo = 12;
@@ -49,6 +49,7 @@ class C {
  * ARRAYS
  */
 
+// Just like Array<T> but with non of the mutating functionality
 const arr: ReadonlyArray<number> = [1];
 // arr.push(2);
 // arr[0] = 0;
